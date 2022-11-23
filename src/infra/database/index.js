@@ -31,10 +31,47 @@ const getAllDocuments = async (collection) => {
   return data
 }
 
+const createRoute = async (id, name) => {
+  return await getCollection('routes')
+    .add({
+      id,
+      name
+  })
+}
+
+const createStation = async (id, name, location) => {
+  return await getCollection('stations')
+    .add({
+      id,
+      name,
+      location
+  })
+}
+
+
+
+const updateDocument = async (collection, id, body) => {
+  return await getCollection(collection)
+    .doc(id)
+    .update(body)
+}
+
+const deleteDocument = async (collection,id) => {
+  return await getCollection(collection)
+    .doc(id)
+    .delete()
+}
+
+
+
 const db = {
   getDocumentById,
   getDocumentsByName,
-  getAllDocuments
+  getAllDocuments,
+  createRoute,
+  createStation,
+  updateDocument,
+  deleteDocument
 }
 
 module.exports = db
