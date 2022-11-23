@@ -42,7 +42,7 @@ exports.getRoutes = async (req, res) => {
 }
 
 exports.createRoute = async (req, res) => {
-  const { id, name} = req?.body
+  const { id, name } = req.body
   try {
     const dataRes = await db.createRoute( id, name)
     res.status(200).send(dataRes?.id)
@@ -53,7 +53,7 @@ exports.createRoute = async (req, res) => {
 }
 
 exports.updateRoute = async (req, res) => {
-  const { id, name} = req?.body
+  const { id, name} = req.body
   try {
     const dataRes = await db.updateDocument('routes', id, {name})
     res.status(200).send(dataRes?.id)
@@ -64,7 +64,7 @@ exports.updateRoute = async (req, res) => {
 }
 
 exports.deleteRoute = async (req, res) => {
-  const { id} = req?.body
+  const { id} = req.body
   try {
     const dataRes = await db.deleteDocument('routes', id)
     res.status(200).send(dataRes)
@@ -75,7 +75,7 @@ exports.deleteRoute = async (req, res) => {
 }
 
 exports.updateStation = async (req, res) => {
-  const { id, name, location} = req?.body
+  const { id, name, location} = req.body
   try {
     const dataRes = await db.updateDocument('stations', id, {name, location})
     res.status(200).send(dataRes?.id)
@@ -86,7 +86,7 @@ exports.updateStation = async (req, res) => {
 }
 
 exports.deleteStation = async (req, res) => {
-  const { id} = req?.body
+  const { id} = req.body
   try {
     const dataRes = await db.deleteDocument('stations', id)
     res.status(200).send(dataRes)
